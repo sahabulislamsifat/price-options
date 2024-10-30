@@ -16,14 +16,21 @@ const NavBar = () => {
   return (
     <header>
       <nav>
-        <div className="md:hidden" onClick={() => setOpen(!open)}>
+        <div
+          className="md:hidden  bg-blue-400 p-4"
+          onClick={() => setOpen(!open)}
+        >
           {open === true ? (
             <FaRegWindowClose className="text-2xl"></FaRegWindowClose>
           ) : (
             <RiMenu2Line className="text-2xl"></RiMenu2Line>
           )}
         </div>
-        <ul className="md:flex">
+        <ul
+          className={`${
+            open ? "top-10" : "-top-60"
+          } justify-center duration-1000 md:flex absolute md:static bg-slate-500 p-4 ml-5`}
+        >
           {routes.map((route) => (
             <Links key={route.id} route={route}></Links>
           ))}
